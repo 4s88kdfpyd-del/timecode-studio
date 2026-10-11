@@ -1971,7 +1971,7 @@ body{
 <link rel="apple-touch-icon" href="icon.svg">
 
 <style id="v6-compact-portrait">
-/* v6.1 — bottom-aligned keypad / iOS double-tap zoom guard */
+/* v6.2 — compact header flow / bottom-aligned keypad / iOS zoom guard */
 
 /* Logo: keep the glass look but improve legibility on the pale background. */
 .logo-mark{
@@ -2042,10 +2042,15 @@ body{
     overflow-y:auto !important;
   }
   .wrap{
-    flex:1 0 auto !important;
-    display:flex !important;
-    flex-direction:column !important;
-    min-height:0 !important;
+    flex:0 0 auto !important;
+    display:block !important;
+  }
+  body > .wrap,
+  body > .tabs,
+  body > .panel,
+  body > .result-card,
+  body > .keypad{
+    flex:0 0 auto !important;
   }
 
   .topbar{
@@ -2235,7 +2240,7 @@ body{
       <span class="mark-shine"></span>
     </div>
     <div class="logo-type">
-      <h1 class="brand"><span class="brand-time">Timecode Studio</span><span class="version-tag">v6.1</span></h1>
+      <h1 class="brand"><span class="brand-time">Timecode Studio</span><span class="version-tag">v6.2</span></h1>
     </div>
   </div>
 
