@@ -2260,6 +2260,138 @@ body{
 }
 </style>
 
+
+
+<style id="v6-4-layout-tuning">
+/* v6.4 — use the available portrait area more effectively without moving RESULT/keypad. */
+@media (orientation:portrait){
+  /* TOTAL: occupy the free middle area while the RESULT and keypad keep their current positions. */
+  #panel5.active{
+    flex:1 1 auto !important;
+    min-height:0 !important;
+    width:calc(100% + 8px) !important;
+    max-width:calc(520px + 8px) !important;
+    margin-left:-4px !important;
+    margin-right:-4px !important;
+    overflow:hidden !important;
+  }
+  #panel5.active .card{
+    height:100% !important;
+    min-height:0 !important;
+    width:100% !important;
+    padding:7px 5px 6px !important;
+    margin:0 !important;
+    display:flex !important;
+    flex-direction:column !important;
+    overflow:hidden !important;
+  }
+  #panel5 .section-title{
+    flex:0 0 auto !important;
+    margin:0 2px 5px !important;
+  }
+  #panel5 .cut-scroll-area{
+    flex:1 1 auto !important;
+    min-height:0 !important;
+    padding:0 1px 2px !important;
+    overflow-y:auto !important;
+    overflow-x:hidden !important;
+  }
+  #panel5 .cut-list{
+    gap:7px !important;
+    width:100% !important;
+  }
+  #panel5 .cut-row{
+    width:100% !important;
+    padding:9px 6px !important;
+    border-radius:14px !important;
+  }
+  #panel5 .cut-head{
+    margin:0 2px 6px !important;
+  }
+  #panel5 .cut-number,
+  #panel5 .cut-duration{
+    font-size:10px !important;
+  }
+  #panel5 .cut-grid{
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr) !important;
+    gap:6px !important;
+    width:100% !important;
+  }
+  #panel5 .cut-grid input{
+    min-width:0 !important;
+    width:100% !important;
+    font-size:18px !important;
+    padding:10px 4px !important;
+    border-radius:11px !important;
+  }
+  #panel5 .cut-add-inline{
+    margin-top:7px !important;
+    min-height:36px !important;
+    padding:8px 6px !important;
+    font-size:11px !important;
+  }
+  #panel5 .cut-total-full{
+    flex:0 0 auto !important;
+    min-height:38px !important;
+    margin-top:6px !important;
+    padding:8px 6px !important;
+    font-size:12px !important;
+  }
+  #panel5 .cut-summary{
+    flex:0 0 auto !important;
+    min-height:28px !important;
+    margin-top:5px !important;
+    padding:5px 8px !important;
+    font-size:9px !important;
+  }
+
+  /* KEYPAD: outer box/position are unchanged. Reclaim internal space so key faces are ~20% taller/larger. */
+  .keypad{
+    padding:4px !important;
+  }
+  .keypad-head{
+    flex:0 0 14px !important;
+    min-height:14px !important;
+    padding:0 2px 1px !important;
+  }
+  .keypad-title{
+    font-size:7px !important;
+    line-height:1 !important;
+  }
+  .keypad-target{
+    font-size:8px !important;
+    line-height:1 !important;
+  }
+  .keypad-grid{
+    gap:2px !important;
+    grid-template-rows:
+      minmax(0,1.08fr)
+      minmax(0,1.08fr)
+      minmax(0,1.08fr)
+      minmax(0,1.08fr)
+      minmax(26px,.68fr) !important;
+  }
+  .key{
+    font-size:24px !important;
+    border-radius:13px !important;
+  }
+  .key-backspace{
+    font-size:28px !important;
+  }
+  .key-nav{
+    font-size:20px !important;
+  }
+  .key.done{
+    font-size:11px !important;
+  }
+}
+
+/* On shorter portrait screens keep the same outer keypad geometry; only trim the key text slightly. */
+@media (orientation:portrait) and (max-height:760px){
+  .key{font-size:22px !important;}
+  .key-backspace{font-size:26px !important;}
+}
+</style>
 </head>
 <body>
 <div id="portraitOnly" class="portrait-only-overlay" aria-live="polite">
@@ -2279,7 +2411,7 @@ body{
       <span class="mark-shine"></span>
     </div>
     <div class="logo-type">
-      <h1 class="brand"><span class="brand-time">Timecode Studio</span><span class="version-tag">v6.3</span></h1>
+      <h1 class="brand"><span class="brand-time">Timecode Studio</span><span class="version-tag">v6.4</span></h1>
     </div>
   </div>
 
