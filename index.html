@@ -20,6 +20,10 @@
   --shadow:0 16px 40px rgba(0,0,0,.38);
 }
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+button,input,select{
+  touch-action:manipulation;
+  -webkit-touch-callout:none;
+}
 html{background:var(--bg)}
 body{
   margin:0;
@@ -1967,7 +1971,7 @@ body{
 <link rel="apple-touch-icon" href="icon.svg">
 
 <style id="v6-compact-portrait">
-/* v6.0 — compact portrait layout / high-contrast logo / landscape guard */
+/* v6.1 — bottom-aligned keypad / iOS double-tap zoom guard */
 
 /* Logo: keep the glass look but improve legibility on the pale background. */
 .logo-mark{
@@ -2030,10 +2034,18 @@ body{
 @media (orientation:portrait){
   html,body{min-height:100%;}
   body{
+    display:flex !important;
+    flex-direction:column !important;
     min-height:100dvh !important;
     padding:max(4px,env(safe-area-inset-top)) 8px calc(8px + env(safe-area-inset-bottom)) !important;
     overflow-x:hidden !important;
     overflow-y:auto !important;
+  }
+  .wrap{
+    flex:1 0 auto !important;
+    display:flex !important;
+    flex-direction:column !important;
+    min-height:0 !important;
   }
 
   .topbar{
@@ -2105,7 +2117,7 @@ body{
     max-width:520px !important;
     height:60px !important;
     min-height:60px !important;
-    margin:6px auto 0 !important;
+    margin:auto auto 0 !important;
     padding:7px 12px !important;
     overflow:hidden !important;
     z-index:1 !important;
@@ -2223,7 +2235,7 @@ body{
       <span class="mark-shine"></span>
     </div>
     <div class="logo-type">
-      <h1 class="brand"><span class="brand-time">Timecode Studio</span><span class="version-tag">v6.0</span></h1>
+      <h1 class="brand"><span class="brand-time">Timecode Studio</span><span class="version-tag">v6.1</span></h1>
     </div>
   </div>
 
