@@ -2391,6 +2391,65 @@ body{
   .key{font-size:22px !important;}
   .key-backspace{font-size:26px !important;}
 }
+
+</style>
+
+<style id="v6-5-result-placement">
+/* v6.5 — RESULT directly under the active input panel in modes 1–4.
+   TOTAL keeps the v6.4 result/keypad stack position unchanged. */
+@media (orientation:portrait){
+  /* Modes 1–4: RESULT follows the input card immediately. */
+  body:not(.total-mode) > .result-card{
+    margin:6px auto 0 !important;
+  }
+
+  /* Keep the keypad at the same bottom position as v6.4. */
+  body:not(.total-mode) > .keypad{
+    margin:auto auto 0 !important;
+  }
+
+  /* TOTAL: preserve the v6.4 placement exactly. */
+  body.total-mode > .result-card{
+    margin:auto auto 0 !important;
+  }
+  body.total-mode > .keypad{
+    margin:6px auto 0 !important;
+  }
+
+  /* Make the timecode result more prominent without changing the RESULT box size. */
+  .result-card{
+    height:60px !important;
+    min-height:60px !important;
+    padding:4px 12px !important;
+  }
+  .result-card .result-label{
+    font-size:8px !important;
+    line-height:1 !important;
+  }
+  .result-card .result{
+    font-size:31px !important;
+    line-height:.94 !important;
+    margin:1px 0 0 !important;
+    letter-spacing:.025em !important;
+  }
+  .result-card .frames{
+    font-size:8px !important;
+    line-height:1 !important;
+    margin:0 !important;
+  }
+}
+
+@media (orientation:portrait) and (max-height:760px){
+  /* Keep the existing short-screen RESULT box height, only enlarge the number. */
+  .result-card{
+    height:56px !important;
+    min-height:56px !important;
+    padding:3px 12px !important;
+  }
+  .result-card .result{
+    font-size:29px !important;
+  }
+}
 </style>
 </head>
 <body>
@@ -2411,7 +2470,7 @@ body{
       <span class="mark-shine"></span>
     </div>
     <div class="logo-type">
-      <h1 class="brand"><span class="brand-time">Timecode Studio</span><span class="version-tag">v6.4</span></h1>
+      <h1 class="brand"><span class="brand-time">Timecode Studio</span><span class="version-tag">v6.5</span></h1>
     </div>
   </div>
 
@@ -2809,6 +2868,7 @@ function calcCutTotal(){
 
 function showPanel(n){
   setActiveTCInput(null);
+  document.body.classList.toggle('total-mode', n === 5);
 
   document.querySelectorAll('.panel').forEach((p,i)=>{
     p.classList.toggle('active', i === n-1);
