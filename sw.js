@@ -1,4 +1,4 @@
-const CACHE_NAME = 'timecode-studio-v6-2-flow-bottom-keypad';
+const CACHE_NAME = 'timecode-studio-v6-3-horizontal-swipe-lock';
 const ASSETS = ['./','./index.html','./manifest.webmanifest','./icon.svg'];
 
 self.addEventListener('install', event => {
