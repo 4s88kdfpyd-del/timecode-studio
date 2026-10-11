@@ -1680,18 +1680,291 @@ body{
     min-height:40px !important;
   }
 }
+
+<style>
+/* iPhone bottom safe-area fix for the fixed keypad */
+.keypad{
+  bottom:calc(env(safe-area-inset-bottom) + 8px) !important;
+  max-height:calc(100dvh - 110px) !important;
+  overflow:visible !important;
+  padding-bottom:10px !important;
+}
+
+/* Keep RESULT above keypad without overlap */
+.result-card{
+  bottom:calc(env(safe-area-inset-bottom) + 286px) !important;
+}
+
+/* Give the page enough reserved space for fixed bottom UI */
+body{
+  padding-bottom:calc(360px + env(safe-area-inset-bottom)) !important;
+}
+
+/* iPhone XS Max / similar */
+@media (min-width:400px) and (max-width:430px){
+  .keypad{
+    bottom:calc(env(safe-area-inset-bottom) + 6px) !important;
+    padding-bottom:8px !important;
+  }
+
+  .key{
+    min-height:42px !important;
+  }
+
+  .result-card{
+    bottom:calc(env(safe-area-inset-bottom) + 276px) !important;
+  }
+
+  body{
+    padding-bottom:calc(350px + env(safe-area-inset-bottom)) !important;
+  }
+}
+
+/* When launched from Home Screen */
+@media (display-mode: standalone){
+  .keypad{
+    bottom:calc(env(safe-area-inset-bottom) + 4px) !important;
+  }
+
+  .result-card{
+    bottom:calc(env(safe-area-inset-bottom) + 274px) !important;
+  }
+}
+
+<style>
+/* Final overlap fixes */
+
+/* Labels must sit clearly above focused input outlines */
+label{
+  display:block !important;
+  position:relative !important;
+  z-index:2 !important;
+  margin-bottom:6px !important;
+  line-height:1.2 !important;
+  padding-left:1px !important;
+}
+
+.tc-input-active{
+  outline:2px solid #53a7ee !important;
+  outline-offset:1px !important;
+  box-shadow:
+    0 0 0 3px rgba(255,255,255,.72),
+    0 0 0 6px rgba(77,157,227,.15),
+    inset 0 2px 5px rgba(79,112,145,.16) !important;
+}
+
+/* Fixed keypad size and placement */
+.keypad{
+  position:fixed !important;
+  left:8px !important;
+  right:8px !important;
+  width:auto !important;
+  bottom:calc(env(safe-area-inset-bottom) + 8px) !important;
+  height:auto !important;
+  max-height:none !important;
+  overflow:visible !important;
+  z-index:100 !important;
+  margin:0 !important;
+}
+
+/* Put RESULT safely above keypad using a larger reserved offset */
+.result-card{
+  position:fixed !important;
+  left:8px !important;
+  right:8px !important;
+  width:auto !important;
+  bottom:calc(env(safe-area-inset-bottom) + 292px) !important;
+  z-index:99 !important;
+  margin:0 !important;
+}
+
+/* Reserve enough document space for both fixed blocks */
+body{
+  padding-bottom:calc(370px + env(safe-area-inset-bottom)) !important;
+}
+
+/* XS Max / similar widths */
+@media (min-width:400px) and (max-width:430px){
+  .keypad{
+    left:6px !important;
+    right:6px !important;
+    bottom:calc(env(safe-area-inset-bottom) + 6px) !important;
+  }
+
+  .result-card{
+    left:6px !important;
+    right:6px !important;
+    bottom:calc(env(safe-area-inset-bottom) + 286px) !important;
+  }
+
+  body{
+    padding-bottom:calc(362px + env(safe-area-inset-bottom)) !important;
+  }
+}
+
+/* Home-screen PWA */
+@media (display-mode: standalone){
+  .keypad{
+    bottom:calc(env(safe-area-inset-bottom) + 6px) !important;
+  }
+
+  .result-card{
+    bottom:calc(env(safe-area-inset-bottom) + 286px) !important;
+  }
+}
+</style>
+</style>
 </style>
 </style>
 </style>
 </style>
 
+<style id="xsmax-final-layout-fix">
+/* Clean final overrides for iPhone XS Max */
+
+/* Keep title on one line without colliding with frame-rate switch */
+.topbar{
+  display:flex !important;
+  align-items:center !important;
+  gap:6px !important;
+}
+.logo-wrap{
+  flex:1 1 auto !important;
+  min-width:0 !important;
+  gap:7px !important;
+}
+.logo-mark{
+  width:46px !important;
+  height:46px !important;
+  flex:0 0 46px !important;
+  border-radius:15px !important;
+}
+.logo-type{
+  min-width:0 !important;
+}
+.brand{
+  margin:0 !important;
+  white-space:nowrap !important;
+  overflow:visible !important;
+}
+.brand-time{
+  display:block !important;
+  font-size:24px !important;
+  line-height:1 !important;
+  white-space:nowrap !important;
+  letter-spacing:-.045em !important;
+}
+.rate-switch-wrap{
+  flex:0 0 auto !important;
+  margin-left:auto !important;
+}
+.rate-btn{
+  min-width:58px !important;
+  min-height:28px !important;
+  padding:0 6px !important;
+  font-size:9px !important;
+}
+
+/* Labels must stay clear of the selected-field outline */
+label{
+  display:block !important;
+  position:relative !important;
+  z-index:3 !important;
+  margin-bottom:7px !important;
+  line-height:1.15 !important;
+}
+.tc-input-active{
+  outline:2px solid #53a7ee !important;
+  outline-offset:1px !important;
+}
+
+/* Predictable fixed keypad box: five rows always fit */
+.keypad{
+  position:fixed !important;
+  left:6px !important;
+  right:6px !important;
+  bottom:calc(env(safe-area-inset-bottom) + 4px) !important;
+  width:auto !important;
+  height:248px !important;
+  max-height:248px !important;
+  padding:7px !important;
+  margin:0 !important;
+  overflow:hidden !important;
+  display:flex !important;
+  flex-direction:column !important;
+  z-index:100 !important;
+  box-sizing:border-box !important;
+}
+.keypad-head{
+  flex:0 0 22px !important;
+  min-height:22px !important;
+  padding:0 2px 4px !important;
+}
+.keypad-grid{
+  flex:1 1 auto !important;
+  min-height:0 !important;
+  display:grid !important;
+  grid-template-columns:repeat(3,1fr) !important;
+  grid-template-rows:repeat(5,minmax(0,1fr)) !important;
+  gap:5px !important;
+}
+.key{
+  min-height:0 !important;
+  height:auto !important;
+  padding:0 !important;
+  border-radius:11px !important;
+  font-size:20px !important;
+}
+.key-backspace,
+.key-nav{
+  font-size:23px !important;
+}
+.key.done{
+  font-size:12px !important;
+}
+
+/* RESULT sits immediately above the keypad, never underneath it */
+.result-card{
+  position:fixed !important;
+  left:6px !important;
+  right:6px !important;
+  width:auto !important;
+  height:56px !important;
+  min-height:56px !important;
+  bottom:calc(env(safe-area-inset-bottom) + 258px) !important;
+  margin:0 !important;
+  z-index:99 !important;
+  overflow:hidden !important;
+  box-sizing:border-box !important;
+}
+.result-card .result{
+  line-height:1 !important;
+}
+.result-card .frames{
+  line-height:1.1 !important;
+  margin-top:1px !important;
+}
+
+/* Reserve enough document space for fixed bottom controls */
+body{
+  padding-bottom:calc(330px + env(safe-area-inset-bottom)) !important;
+  overflow-x:hidden !important;
+}
+
+/* XS Max logical width */
+@media (min-width:400px) and (max-width:430px){
+  .brand-time{font-size:23px !important;}
+  .keypad{height:246px !important; max-height:246px !important;}
+  .result-card{bottom:calc(env(safe-area-inset-bottom) + 256px) !important;}
+}
+</style>
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#8fc7f2">
 <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Timecode Studio">
 <link rel="apple-touch-icon" href="icon.svg">
-
 </head>
 <body>
 <div class="wrap">
@@ -2383,7 +2656,6 @@ window.addEventListener('load', ()=>{
 });
 
 </script>
-
 <script>
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
@@ -2391,6 +2663,5 @@ if ('serviceWorker' in navigator) {
   });
 }
 </script>
-
 </body>
 </html>

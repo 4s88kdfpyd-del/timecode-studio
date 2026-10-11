@@ -2,9 +2,11 @@
   "name": "Timecode Studio",
   "short_name": "Timecode",
   "start_url": "./index.html",
+  "scope": "./",
   "display": "standalone",
-  "background_color": "#b9daf5",
+  "background_color": "#9bc4e8",
   "theme_color": "#8fc7f2",
+  "orientation": "portrait",
   "icons": [
     {
       "src": "icon.svg",
