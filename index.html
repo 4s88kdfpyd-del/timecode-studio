@@ -2395,7 +2395,8 @@ body{
 </style>
 
 <style id="v6-5-result-placement">
-/* v6.5 — RESULT directly under the active input panel in modes 1–4.
+/* v6.6 — Stack 尺/演算 inputs vertically; RESULT behavior retained from v6.5.
+   v6.5 — RESULT directly under the active input panel in modes 1–4.
    TOTAL keeps the v6.4 result/keypad stack position unchanged. */
 @media (orientation:portrait){
   /* Modes 1–4: RESULT follows the input card immediately. */
@@ -2470,7 +2471,7 @@ body{
       <span class="mark-shine"></span>
     </div>
     <div class="logo-type">
-      <h1 class="brand"><span class="brand-time">Timecode Studio</span><span class="version-tag">v6.5</span></h1>
+      <h1 class="brand"><span class="brand-time">Timecode Studio</span><span class="version-tag">v6.6</span></h1>
     </div>
   </div>
 
@@ -2515,10 +2516,9 @@ body{
 <div id="panel1" class="panel active">
     <div class="card">
       <div class="section-title">開始TC → 終了TC から尺を計算</div>
-      <div class="grid2">
-        <div><label>START TC</label><input id="startTC" type="text" inputmode="none" readonly value="00:00:00:00"></div>
-        <div><label>END TC</label><input id="endTC" type="text" inputmode="none" readonly value="00:00:00:00"></div>
-      </div>
+      <label>START TC</label><input id="startTC" type="text" inputmode="none" readonly value="00:00:00:00">
+      <div class="spacer"></div>
+      <label>END TC</label><input id="endTC" type="text" inputmode="none" readonly value="00:00:00:00">
       <div class="buttons"><button onclick="calcDuration()">尺を計算</button><button class="secondary" onclick="swapStartEnd()">入れ替え</button></div>
     </div>
   </div>
@@ -2536,10 +2536,9 @@ body{
   <div id="panel3" class="panel">
     <div class="card">
       <div class="section-title">タイムコード同士の加算・減算</div>
-      <div class="grid2">
-        <div><label>TC A</label><input id="tcA" type="text" inputmode="none" readonly value="00:00:00:00"></div>
-        <div><label>TC B</label><input id="tcB" type="text" inputmode="none" readonly value="00:00:00:00"></div>
-      </div>
+      <label>TC_A</label><input id="tcA" type="text" inputmode="none" readonly value="00:00:00:00">
+      <div class="spacer"></div>
+      <label>TC_B</label><input id="tcB" type="text" inputmode="none" readonly value="00:00:00:00">
       <div class="buttons"><button onclick="calcAB('add')">A ＋ B</button><button onclick="calcAB('sub')">A － B</button></div>
     </div>
   </div>

@@ -1,4 +1,4 @@
-const CACHE_NAME = 'timecode-studio-v6-5-result-below-inputs';
+const CACHE_NAME = 'timecode-studio-v6-6-stacked-inputs';
 const ASSETS = ['./','./index.html','./manifest.webmanifest','./icon.svg'];
 
 self.addEventListener('install', event => {
