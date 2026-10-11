@@ -1965,8 +1965,254 @@ body{
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Timecode Studio">
 <link rel="apple-touch-icon" href="icon.svg">
+
+<style id="v6-compact-portrait">
+/* v6.0 — compact portrait layout / high-contrast logo / landscape guard */
+
+/* Logo: keep the glass look but improve legibility on the pale background. */
+.logo-mark{
+  width:48px !important;
+  height:48px !important;
+  flex:0 0 48px !important;
+  border-radius:15px !important;
+  background:
+    radial-gradient(circle at 50% 10%,rgba(255,255,255,.96),rgba(255,255,255,.22) 34%,transparent 35%),
+    linear-gradient(180deg,#caecff 0%,#72b8ed 55%,#2c7fc5 100%) !important;
+  border:1px solid rgba(255,255,255,.92) !important;
+  box-shadow:
+    inset 0 2px 1px rgba(255,255,255,.94),
+    inset 0 -6px 10px rgba(14,76,137,.17),
+    0 7px 14px rgba(38,82,124,.16) !important;
+}
+.mark-ring{
+  border-color:rgba(17,87,146,.34) !important;
+  box-shadow:inset 0 0 0 2px rgba(255,255,255,.55) !important;
+}
+.mark-core{
+  color:#0c568f !important;
+  text-shadow:0 1px 0 rgba(255,255,255,.95),0 2px 5px rgba(24,77,126,.22) !important;
+}
+.logo-wrap{gap:8px !important;}
+.logo-type{min-width:0 !important;}
+.brand{
+  display:flex !important;
+  align-items:flex-end !important;
+  gap:4px !important;
+  overflow:visible !important;
+}
+.brand-time{
+  display:block !important;
+  font-size:25px !important;
+  line-height:1 !important;
+  font-weight:900 !important;
+  letter-spacing:-.045em !important;
+  white-space:nowrap !important;
+  background:linear-gradient(180deg,#0b4779 0%,#145f98 58%,#0a477c 100%) !important;
+  -webkit-background-clip:text !important;
+  background-clip:text !important;
+  color:#0b4f86 !important;
+  -webkit-text-fill-color:transparent !important;
+  -webkit-text-stroke:0 !important;
+  filter:drop-shadow(0 1px 0 rgba(255,255,255,.82));
+}
+.version-tag{
+  display:inline-block;
+  flex:0 0 auto;
+  margin:0 0 1px 1px;
+  font:700 7px/1 -apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
+  letter-spacing:.03em;
+  color:rgba(22,78,124,.46);
+  -webkit-text-fill-color:rgba(22,78,124,.46);
+  text-shadow:none;
+}
+
+/* Compact vertical rhythm: remove the large unused middle area. */
+@media (orientation:portrait){
+  html,body{min-height:100%;}
+  body{
+    min-height:100dvh !important;
+    padding:max(4px,env(safe-area-inset-top)) 8px calc(8px + env(safe-area-inset-bottom)) !important;
+    overflow-x:hidden !important;
+    overflow-y:auto !important;
+  }
+
+  .topbar{
+    width:min(520px,100%) !important;
+    margin:0 auto 6px !important;
+    padding:0 2px !important;
+    align-items:center !important;
+  }
+  .rate-btn{
+    min-width:58px !important;
+    min-height:27px !important;
+    padding:0 6px !important;
+    font-size:9px !important;
+  }
+  .rate-switch{padding:3px !important;}
+
+  .tabs{
+    width:min(520px,100%) !important;
+    margin:0 auto 6px !important;
+    padding:4px !important;
+    gap:4px !important;
+  }
+  .tabbtn{
+    min-height:48px !important;
+    padding:3px 2px !important;
+  }
+
+  .panel{
+    width:min(520px,100%) !important;
+    margin:0 auto !important;
+  }
+  #panel1 .card,
+  #panel2 .card,
+  #panel3 .card,
+  #panel4 .card{
+    height:auto !important;
+    min-height:0 !important;
+    margin-bottom:0 !important;
+    padding:9px !important;
+    overflow:visible !important;
+  }
+  #panel5 .card{
+    height:190px !important;
+    min-height:190px !important;
+    margin-bottom:0 !important;
+    padding:9px !important;
+    overflow:hidden !important;
+  }
+  #panel5 .cut-scroll-area{
+    flex:1 1 auto !important;
+    min-height:0 !important;
+    overflow-y:auto !important;
+  }
+
+  .section-title{margin-bottom:4px !important;}
+  label{margin-bottom:4px !important;}
+  input,select{padding:8px 6px !important;}
+  .buttons{margin-top:6px !important; gap:7px !important;}
+  .spacer{height:3px !important;}
+
+  /* Result and keypad now follow the active panel instead of being pinned far below it. */
+  .result-card{
+    position:relative !important;
+    left:auto !important;
+    right:auto !important;
+    bottom:auto !important;
+    transform:none !important;
+    width:min(520px,100%) !important;
+    max-width:520px !important;
+    height:60px !important;
+    min-height:60px !important;
+    margin:6px auto 0 !important;
+    padding:7px 12px !important;
+    overflow:hidden !important;
+    z-index:1 !important;
+  }
+  .result-card .result-label{font-size:9px !important; line-height:1 !important;}
+  .result-card .result{font-size:23px !important; line-height:1 !important; margin:2px 0 1px !important;}
+  .result-card .frames{font-size:9px !important; line-height:1 !important; margin:0 !important;}
+
+  .keypad{
+    position:relative !important;
+    left:auto !important;
+    right:auto !important;
+    bottom:auto !important;
+    transform:none !important;
+    width:min(520px,100%) !important;
+    max-width:520px !important;
+    height:254px !important;
+    max-height:none !important;
+    margin:6px auto 0 !important;
+    padding:7px !important;
+    overflow:hidden !important;
+    z-index:1 !important;
+  }
+  .keypad-head{
+    flex:0 0 21px !important;
+    min-height:21px !important;
+    padding:0 2px 4px !important;
+  }
+  .keypad-grid{
+    flex:1 1 auto !important;
+    min-height:0 !important;
+    grid-template-rows:repeat(5,minmax(0,1fr)) !important;
+    gap:5px !important;
+  }
+  .key{min-height:0 !important; height:auto !important;}
+}
+
+/* Slightly tighter on short portrait displays, but still fully usable. */
+@media (orientation:portrait) and (max-height:760px){
+  .logo-mark{width:43px !important;height:43px !important;flex-basis:43px !important;}
+  .brand-time{font-size:22px !important;}
+  .tabs{margin-bottom:5px !important;}
+  .tabbtn{min-height:44px !important;}
+  #panel5 .card{height:172px !important;min-height:172px !important;}
+  .result-card{height:56px !important;min-height:56px !important;}
+  .keypad{height:226px !important;}
+}
+
+/* Landscape is intentionally unsupported. The app itself is covered, not distorted. */
+.portrait-only-overlay{display:none;}
+@media (orientation:landscape){
+  html,body{width:100%;height:100%;overflow:hidden !important;}
+  .portrait-only-overlay{
+    display:flex !important;
+    position:fixed;
+    inset:0;
+    z-index:2147483647;
+    align-items:center;
+    justify-content:center;
+    padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+    background:
+      radial-gradient(circle at 22% 14%,rgba(255,255,255,.92),transparent 30%),
+      linear-gradient(180deg,#dff2ff 0%,#9fc9ec 100%);
+  }
+  .portrait-only-card{
+    min-width:250px;
+    padding:22px 28px;
+    text-align:center;
+    border-radius:22px;
+    color:#164f7e;
+    background:rgba(255,255,255,.42);
+    border:1px solid rgba(255,255,255,.78);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 15px 34px rgba(37,76,117,.16);
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+  }
+  .portrait-phone{
+    width:25px;
+    height:42px;
+    margin:0 auto 10px;
+    border:3px solid #2a79b7;
+    border-radius:7px;
+    position:relative;
+  }
+  .portrait-phone:after{
+    content:"";
+    position:absolute;
+    width:5px;height:2px;
+    left:50%;bottom:3px;
+    transform:translateX(-50%);
+    border-radius:2px;
+    background:#2a79b7;
+  }
+  .portrait-only-title{font-size:17px;font-weight:900;letter-spacing:.02em;}
+  .portrait-only-text{margin-top:5px;font-size:11px;font-weight:700;opacity:.72;}
+}
+</style>
+
 </head>
 <body>
+<div id="portraitOnly" class="portrait-only-overlay" aria-live="polite">
+  <div class="portrait-only-card">
+    <div class="portrait-phone" aria-hidden="true"></div>
+    <div class="portrait-only-title">縦画面専用です</div>
+    <div class="portrait-only-text">端末を縦向きに戻してください</div>
+  </div>
+</div>
 <div class="wrap">
   
 <div class="topbar">
@@ -1977,7 +2223,7 @@ body{
       <span class="mark-shine"></span>
     </div>
     <div class="logo-type">
-      <h1 class="brand"><span class="brand-time">Timecode Studio</span></h1>
+      <h1 class="brand"><span class="brand-time">Timecode Studio</span><span class="version-tag">v6.0</span></h1>
     </div>
   </div>
 

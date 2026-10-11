@@ -1,4 +1,4 @@
-const CACHE_NAME = 'timecode-studio-v5-xsmax-keypadfix';
+const CACHE_NAME = 'timecode-studio-v6-compact-portrait';
 const ASSETS = ['./','./index.html','./manifest.webmanifest','./icon.svg'];
 
 self.addEventListener('install', event => {
